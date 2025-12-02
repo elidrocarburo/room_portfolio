@@ -1,0 +1,88 @@
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(135deg, #b7d4ff, #e6c8ff, #ffcae8);
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+}
+
+/* Animación del fondo */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Contenedor donde irá tu modelo */
+#model-viewer {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  border-right: 3px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  box-shadow: inset -4px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar pastel */
+#sidebar {
+  width: 360px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  box-shadow: -4px 0 14px rgba(0, 0, 0, 0.15);
+  border-left: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+/* 📌 Secciones cute */
+.section {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 18px 22px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(175, 134, 255, 0.25);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.section:hover {
+  transform: translateY(-6px);
+  border-color: #d7b5ff;
+}
+
+/* Título cute */
+.section h2 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #8d63ff;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Contenido de cada sección */
+.section-content {
+  display: none;
+  margin-top: 10px;
+  color: #555;
+  padding-left: 5px;
+  animation: fadeIn 0.4s ease;
+}
+
+.section-content p,
+.section-content li {
+  color: #444;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Animación suave para las secciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
