@@ -1,23 +1,31 @@
+// funcionalidad a las secciones acerca de mí
+document.querySelectorAll('#sidebar .section').forEach(section => {
+  const header = section.querySelector('h2');
 
-// Toggle sections (Accordion behavior)
-const sections = document.querySelectorAll('.section');
+  header.addEventListener('click', () => {
+    const content = section.querySelector('.section-content');
 
-sections.forEach(sec => {
-  sec.addEventListener('click', () => {
-    const content = sec.querySelector('.section-content');
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+    } else {
+      content.style.display = 'block';
+    }
+  });
+});
 
-    // Cierra todas las demás secciones
-    sections.forEach(other => {
-      if (other !== sec) {
-        const otherContent = other.querySelector('.section-content');
-        if (otherContent) {
-          otherContent.style.display = 'none';
-        }
-      }
-    });
+// da funcionalidad a los botones dentro de My Work
+document.querySelectorAll('.project-toggle').forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.stopPropagation();
 
-    // Alterna la sección actual
-    content.style.display =
-      content.style.display === 'block' ? 'none' : 'block';
+    const content = button.nextElementSibling;
+
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+      button.classList.remove('open');
+    } else {
+      content.style.display = 'block';
+      button.classList.add('open');
+    }
   });
 });

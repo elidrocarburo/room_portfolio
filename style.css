@@ -34,13 +34,35 @@ body {
   padding: 35px 25px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 30px;
   box-shadow: -4px 0 14px rgba(0, 0, 0, 0.15);
   border-left: 3px solid rgba(255, 255, 255, 0.7);
+
+  /* scroll vertical si el contenido es muy grande */
+  max-height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
-/* 📌 Secciones cute */
+/* para que la sidebar tenga un diseño responsivo en páginas web */
+#sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background: rgba(141, 99, 255, 0.6);
+  border-radius: 4px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(141, 99, 255, 0.9);
+}
+
 .section {
   background: rgba(255, 255, 255, 0.85);
   padding: 18px 22px;
@@ -56,7 +78,6 @@ body {
   border-color: #d7b5ff;
 }
 
-/* Título cute */
 .section h2 {
   margin-top: 0;
   font-size: 22px;
@@ -65,13 +86,64 @@ body {
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
 }
 
-/* Contenido de cada sección */
 .section-content {
   display: none;
   margin-top: 10px;
   color: #555;
   padding-left: 5px;
   animation: fadeIn 0.4s ease;
+}
+
+.project {
+  margin-bottom: 20px;
+}
+
+.project-toggle {
+  width: 100%;
+  background: #d7b5ff;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 18px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-toggle:hover {
+  background: #b891ff;
+}
+
+.project-toggle .icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-right: 10px;
+}
+
+.project-toggle.open .icon {
+  transform: rotate(45deg); /* Gira + a – */
+}
+
+.project-content {
+  display: none;
+  margin-top: 12px;
+  padding-left: 10px;
+  border-left: 3px solid #d7b5ff;
+  animation: fadeIn 0.4s ease;
+}
+
+.project-img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .section-content p,
