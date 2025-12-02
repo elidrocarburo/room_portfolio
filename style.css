@@ -153,6 +153,39 @@ body {
   font-size: 15px;
 }
 
+.contact-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  background: #d7b5ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.contact-icon img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.contact-icon:hover {
+  background: #b891ff;
+  transform: translateY(-4px) scale(1.1);
+}
+
+
+
 /* Animación suave para las secciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }
