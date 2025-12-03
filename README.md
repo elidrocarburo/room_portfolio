@@ -28,7 +28,7 @@ A 3D Room built with Three.js, featuring a 3D model made with Blender, to create
     - OrbitControls: Camera controller for 3D graphics that allow users to interactively orbit, zoom and pan around a 3D model using mouse or touch input.
 
 ## 🍧 Technologies
-(
+
 <div align="left">
   
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
@@ -43,4 +43,43 @@ A 3D Room built with Three.js, featuring a 3D model made with Blender, to create
     <img src="https://img.shields.io/badge/Blender-F5792A?style=for-the-badge&logo=blender&logoColor=white" alt="Blender">
   </a>
   
-</div>)
+</div>
+
+## 🍦 Project Structure
+
+<pre>
+├── index.html
+├── main.js
+├── style.css
+├── assets/
+    ├── icons
+    │   ├── camera.svg
+    │   ├── github.svg
+    │   ├── instagram.svg
+    │   └── music.svg
+    ├── images
+    │   ├── donutapp.png
+    │   ├── render.png
+    │   ├── success.gif
+    │   └── yesno.png
+    ├── models
+    │   └── roomportfolio.glb
+    ├── music
+    │   └── music.mp3
+</pre>
+
+## 🍭 Website
+
+<div align="left">
+  
+  <a href="https://elidrocarburo.github.io/room_portfolio/">
+    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=github&logoColor=white" alt="Portfolio">
+  </a>
+  
+</div>
+
+## 🍩 Credits
+
+**3D Room Tutorial**: [YouTube Tutorial](https://youtu.be/AB6sulUMRGE?si=dy_oB8lXnL9peC96)
+
+---
