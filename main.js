@@ -129,6 +129,22 @@ window.addEventListener('load', () => {
   });
 });
 
+// reset camera
+const cameraInitialPosition = camera.position.clone();
+const controlsInitialTarget = controls.target.clone();
+
+const cameraResetBtn = document.getElementById('camera-reset-btn');
+
+cameraResetBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  camera.position.copy(cameraInitialPosition);
+  
+  controls.target.copy(controlsInitialTarget);
+  
+  controls.update();
+});
+
 // animación
 function animate() {
   requestAnimationFrame(animate);

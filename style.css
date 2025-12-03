@@ -197,6 +197,19 @@ body {
   font-weight: 500;
 }
 
+.camera-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.camera-text {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
 /* Animación suave para las secciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }
