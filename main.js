@@ -29,8 +29,26 @@ document.querySelectorAll('.project-toggle').forEach(button => {
 // three.js
 const container = document.getElementById("model-viewer");
 
+const canvas = document.createElement('canvas');
+canvas.width = 1;
+canvas.height = 256;
+const context = canvas.getContext('2d');
+
+
+const gradient = context.createLinearGradient(0, 0, 0, 256);
+gradient.addColorStop(0, '#b7d4ff');
+gradient.addColorStop(0.5, '#e6c8ff');
+gradient.addColorStop(1, '#ffcae8');
+
+context.fillStyle = gradient;
+context.fillRect(0, 0, 1, 256);
+
+const texture = new THREE.CanvasTexture(canvas);
+texture.magFilter = THREE.LinearFilter;
+texture.minFilter = THREE.LinearFilter;
+
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xffffff);
+scene.background = texture;
 
 const camera = new THREE.PerspectiveCamera(
   50,
@@ -38,7 +56,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.set(0, 1.5, 3);
+camera.position.set(8, 18, 16);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
@@ -72,11 +90,43 @@ loader.load(
   }
 );
 
-// responsive design
+// responsive design.
 window.addEventListener('resize', () => {
   camera.aspect = container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(container.clientWidth, container.clientHeight);
+});
+
+const music = document.getElementById('background-music');
+const musicBtn = document.getElementById('music-toggle-btn');
+const nowPlaying = document.getElementById('now-playing');
+
+// play or stop the music
+musicBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (music.paused) {
+    music.play();
+    nowPlaying.textContent = "Now Playing: Musique pour la tristesse de Xion";
+  } else {
+    music.pause();
+    nowPlaying.textContent = "Paused";
+  }
+});
+
+// starts to play the music if detects movement
+window.addEventListener('load', () => {
+  music.play().then(() => {
+    nowPlaying.textContent = "Now Playing: Musique pour la tristesse de Xion";
+  }).catch(() => {
+    const startMusic = () => { 
+      music.play().then(() => { nowPlaying.textContent = "Now Playing: Musique pour la tristesse de Xion"; })
+        .catch(()=>{}); 
+      window.removeEventListener('click', startMusic);
+      window.removeEventListener('scroll', startMusic); 
+    };
+    window.addEventListener('click', startMusic);
+    window.addEventListener('scroll', startMusic);
+  });
 });
 
 // animación
